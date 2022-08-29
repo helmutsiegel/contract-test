@@ -1,0 +1,103 @@
+{
+  "consumer": {
+    "name": "book-consumer"
+  },
+  "interactions": [
+    {
+      "description": "Get all books",
+      "key": "2f6e5bfd",
+      "pending": false,
+      "request": {
+        "method": "GET",
+        "path": "/api/book"
+      },
+      "response": {
+        "body": {
+          "content": [
+            {
+              "author": "Joshua Bloch",
+              "id": 1,
+              "title": "Effective Java"
+            },
+            {
+              "author": "Robert Cecil Martin",
+              "id": 2,
+              "title": "Clean Code"
+            },
+            {
+              "author": "James Clear",
+              "id": 3,
+              "title": "Atomic Habits"
+            }
+          ],
+          "contentType": "application/json",
+          "encoded": false
+        },
+        "headers": {
+          "Content-Type": [
+            "application/json"
+          ]
+        },
+        "status": 200
+      },
+      "type": "Synchronous/HTTP"
+    },
+    {
+      "description": "Get book by id",
+      "key": "59b84ecf",
+      "pending": false,
+      "request": {
+        "method": "GET",
+        "path": "/api/book/1"
+      },
+      "response": {
+        "body": {
+          "content": {
+            "author": "Joshua Bloch",
+            "created": "2001-01-01",
+            "id": 1,
+            "title": "Effective Java"
+          },
+          "contentType": "application/json",
+          "encoded": false
+        },
+        "headers": {
+          "Content-Type": [
+            "application/json"
+          ]
+        },
+        "status": 200
+      },
+      "type": "Synchronous/HTTP"
+    },
+    {
+      "description": "Get book by non-existing id ",
+      "key": "9e9eda16",
+      "pending": false,
+      "request": {
+        "method": "GET",
+        "path": "/api/book/404"
+      },
+      "response": {
+        "headers": {
+          "Content-Type": [
+            "application/json"
+          ]
+        },
+        "status": 404
+      },
+      "type": "Synchronous/HTTP"
+    }
+  ],
+  "metadata": {
+    "pact-jvm": {
+      "version": "4.3.14"
+    },
+    "pactSpecification": {
+      "version": "4.0"
+    }
+  },
+  "provider": {
+    "name": "book-producer"
+  }
+}
